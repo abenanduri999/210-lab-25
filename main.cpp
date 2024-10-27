@@ -7,7 +7,16 @@
 
 using namespace std;
 
+const int CODES_SIZE = 20000; 
+
 int main() {
+
+    ifstream input("codes.txt");
+    string codes[CODES_SIZE]; 
+    int i = 0; 
+    while(input >> codes[i++])
+    input.close(); 
+
     
 
     return 0;
