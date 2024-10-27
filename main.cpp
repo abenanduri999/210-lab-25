@@ -4,6 +4,7 @@
 #include <list>
 #include <set>
 #include <fstream>
+#include <iomanip>
 
 using namespace std;
 
@@ -16,8 +17,12 @@ int main() {
     int i = 0; 
     while(input >> codes[i++])
     input.close(); 
-
     
+    vector<string> v1; 
+    list<string> l1; 
+    set<string> s1; 
+    
+
 
     return 0;
 }
