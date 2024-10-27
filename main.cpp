@@ -7,6 +7,7 @@
 #include <iomanip>
 
 using namespace std;
+using namespace std::chrono; 
 
 const int CODES_SIZE = 20000; 
 
@@ -18,11 +19,22 @@ int main() {
     while(input >> codes[i++])
     input.close(); 
     
-    vector<string> v1; 
+    
     list<string> l1; 
     set<string> s1; 
     
+    auto startvr = high_resolution_clock::now(); 
+    vector<string> v1; 
+    for(int i = 0; i < CODES_SIZE; i++)
+    {
+        v1.push_back(codes[i]);
+    }
+    auto endvr = high_resolution_clock::now(); 
+    auto durationvr = duration_cast<milliseconds>(endvr - startvr); 
 
+    cout<<"time taken: "<<durationvr.count()<<endl; 
+
+    auto 
 
     return 0;
 }
