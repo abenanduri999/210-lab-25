@@ -20,7 +20,7 @@ int main() {
     input.close(); 
     
     
-    list<string> l1; 
+     
     set<string> s1; 
     
     auto startvr = high_resolution_clock::now(); 
@@ -34,7 +34,16 @@ int main() {
 
     cout<<"time taken: "<<durationvr.count()<<endl; 
 
-    auto 
+    auto startlr = high_resolution_clock::now(); 
+    list<string> l1;
+    for(int i = 0; i < CODES_SIZE; i++)
+    {
+        l1.push_back(codes[i]); 
+    }
+    auto endlr = high_resolution_clock::now(); 
+    auto durationlr = duration_cast<milliseconds>(endlr - startlr);
+
+    cout<<"Time taken: "<<durationlr.count()<<endl; 
 
     return 0;
 }
