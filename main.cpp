@@ -75,7 +75,17 @@ int main() {
 
     auto startsi = high_resolution_clock::now(); 
     int mid_of_set = s1.size() / 2; 
-    
+    auto it_s = s1.begin();
+    advance(it_s, mid_of_set);
+    s1.insert(it_s, "TESTCODE"); 
+    auto endsi = high_resolution_clock::now(); 
+    auto durationsi = duration_cast<milliseconds>(endsi - startsi); 
+
+
+    // DELETIONS
+
+     auto startvd = high_resolution_clock::now(); 
+
 
 
 
