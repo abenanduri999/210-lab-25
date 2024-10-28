@@ -113,7 +113,9 @@ int main() {
     setw(10)<<right<<"Set"<<endl; 
     
     cout<<setw(10)<<right<<"Read"<<setw(10)<<right<<durationvr.count()<<setw(10)<<right<<durationlr.count()<<endl; 
-    cout<<setw(10)<<right<<"Sort"<<setw(10)<<right<<durationls.count()<<endl;
+    
+    cout<<setw(10)<<right<<"Sort"<<setw(10)<<right<<"1"<<setw(10)<<right<<durationls.count()
+    <<setw(10)<<right<<"-1"<<endl;
     
     cout<<setw(10)<<right<<"Insert"<<setw(10)<<right<<durationvi.count()<<setw(10)<<right<<durationli.count()
     <<setw(10)<<right<<durationsi.count()<<endl; 
