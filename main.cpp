@@ -33,7 +33,6 @@ int main() {
     auto durationvr = duration_cast<milliseconds>(endvr - startvr); 
 
     cout<<"time taken: "<<durationvr.count()<<endl; 
-
     auto startlr = high_resolution_clock::now(); 
     list<string> l1;
     for(int i = 0; i < CODES_SIZE; i++)
@@ -42,8 +41,17 @@ int main() {
     }
     auto endlr = high_resolution_clock::now(); 
     auto durationlr = duration_cast<milliseconds>(endlr - startlr);
-
     cout<<"Time taken: "<<durationlr.count()<<endl; 
+
+    //auto startsr = high_resolution_clock::now(); 
+    
+    auto startvs = high_resolution_clock::now(); 
+    sort(v1.begin(), v1.end()); 
+    auto endvs = high_resolution_clock::now(); 
+    auto durationvs = duration_cast<milliseconds>(endvs - startvs); 
+
+    auto startls = high_resolution_clock::now(); 
+    
 
     return 0;
 }
