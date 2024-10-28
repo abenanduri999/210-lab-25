@@ -1,4 +1,4 @@
-
+//COMSC 210 | LAB 25 | Abhishek Nanduri
 #include <iostream>
 #include <chrono>
 #include <vector>
@@ -6,6 +6,8 @@
 #include <set>
 #include <fstream>
 #include <iomanip>
+#include <algorithm>
+#include <string>
 
 using namespace std;
 using namespace std::chrono; 
@@ -13,47 +15,60 @@ using namespace std::chrono;
 const int CODES_SIZE = 20000; 
 
 int main() {
-
-    ifstream input("codes.txt");
-    string codes[CODES_SIZE]; 
-    int i = 0; 
-    while(input >> codes[i++])
-    input.close(); 
     
     //READINGS
      
-    set<string> s1; 
     
     auto startvr = high_resolution_clock::now(); 
     vector<string> v1; 
-    for(int i = 0; i < CODES_SIZE; i++)
+    ifstream input("codes.txt");
+    string linev; 
+    int cv = 0; 
+    while(getline(input, linev))
     {
-        v1.push_back(codes[i]);
+        v1.push_back(linev);
+        cv++; 
     }
+    input.close(); 
     auto endvr = high_resolution_clock::now(); 
     auto durationvr = duration_cast<microseconds>(endvr - startvr); 
 
-    cout<<"time taken: "<<durationvr.count()<<endl; 
     auto startlr = high_resolution_clock::now(); 
     list<string> l1;
-    for(int i = 0; i < CODES_SIZE; i++)
+    ifstream inputl("codes.txt"); 
+    string linel;
+    int count = 0;
+    while(getline(inputl, linel))
     {
-        l1.push_back(codes[i]); 
+        l1.push_back(linel);
+        count++;
     }
+    inputl.close();
     auto endlr = high_resolution_clock::now(); 
     auto durationlr = duration_cast<microseconds>(endlr - startlr);
-    cout<<"Time taken: "<<durationlr.count()<<endl; 
+     
+    auto startsr = high_resolution_clock::now(); 
+    set<string> s1; 
+    ifstream inputs("codes.txt");
+    string lines;
+    int cs= 0; 
+    while(getline(inputs, lines))
+    {
+        s1.insert(lines);
+        cs++;
+    }
+    inputs.close(); 
+    auto endsr = high_resolution_clock::now();
+    auto durationsr = duration_cast<microseconds>(endsr - startsr); 
 
-    //auto startsr = high_resolution_clock::now(); 
-    
     
     
     // SORTINGS
 
-    /*auto startvs = high_resolution_clock::now(); 
+    auto startvs = high_resolution_clock::now(); 
     sort(v1.begin(), v1.end()); 
     auto endvs = high_resolution_clock::now(); 
-    auto durationvs = duration_cast<milliseconds>(endvs - startvs); */
+    auto durationvs = duration_cast<milliseconds>(endvs - startvs); 
 
     auto startls = high_resolution_clock::now(); 
     l1.sort();
@@ -112,9 +127,10 @@ int main() {
     cout<<setw(10)<<right<<"Operation"<<setw(10)<<right<<"Vector"<<setw(10)<<right<<"List"<<
     setw(10)<<right<<"Set"<<endl; 
     
-    cout<<setw(10)<<right<<"Read"<<setw(10)<<right<<durationvr.count()<<setw(10)<<right<<durationlr.count()<<endl; 
+    cout<<setw(10)<<right<<"Read"<<setw(10)<<right<<durationvr.count()<<setw(10)<<right<<durationlr.count()
+    <<setw(10)<<right<<durationsr.count()<<endl; 
     
-    cout<<setw(10)<<right<<"Sort"<<setw(10)<<right<<"1"<<setw(10)<<right<<durationls.count()
+    cout<<setw(10)<<right<<"Sort"<<setw(10)<<right<<durationvs.count()<<setw(10)<<right<<durationls.count()
     <<setw(10)<<right<<"-1"<<endl;
     
     cout<<setw(10)<<right<<"Insert"<<setw(10)<<right<<durationvi.count()<<setw(10)<<right<<durationli.count()
