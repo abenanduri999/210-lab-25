@@ -30,7 +30,7 @@ int main() {
         v1.push_back(codes[i]);
     }
     auto endvr = high_resolution_clock::now(); 
-    auto durationvr = duration_cast<milliseconds>(endvr - startvr); 
+    auto durationvr = duration_cast<microseconds>(endvr - startvr); 
 
     cout<<"time taken: "<<durationvr.count()<<endl; 
     auto startlr = high_resolution_clock::now(); 
@@ -40,30 +40,34 @@ int main() {
         l1.push_back(codes[i]); 
     }
     auto endlr = high_resolution_clock::now(); 
-    auto durationlr = duration_cast<milliseconds>(endlr - startlr);
+    auto durationlr = duration_cast<microseconds>(endlr - startlr);
     cout<<"Time taken: "<<durationlr.count()<<endl; 
 
     //auto startsr = high_resolution_clock::now(); 
     
+    
+    
     // SORTINGS
 
-    auto startvs = high_resolution_clock::now(); 
+    /*auto startvs = high_resolution_clock::now(); 
     sort(v1.begin(), v1.end()); 
     auto endvs = high_resolution_clock::now(); 
-    auto durationvs = duration_cast<milliseconds>(endvs - startvs); 
+    auto durationvs = duration_cast<milliseconds>(endvs - startvs); */
 
     auto startls = high_resolution_clock::now(); 
     l1.sort();
     auto endls = high_resolution_clock::now(); 
-    auto durationls = duration_cast<milliseconds>(endls - startls); 
+    auto durationls = duration_cast<microseconds>(endls - startls); 
 
+    
+    
     //INSERTIONS
     
     auto startvi = high_resolution_clock::now(); 
     int middle = v1.size() / 2; 
     v1.insert(v1.begin(), middle, "TESTCODE"); 
     auto endvi = high_resolution_clock::now(); 
-    auto durationvi = duration_cast<milliseconds>(endvi - startvi); 
+    auto durationvi = duration_cast<microseconds>(endvi - startvi); 
 
     auto startli = high_resolution_clock::now();  
     int mid_of_list = l1.size() / 2; 
@@ -71,7 +75,7 @@ int main() {
     advance(it, mid_of_list);
     l1.insert(it, "TESTCODE");
     auto endli = high_resolution_clock::now(); 
-    auto durationli = duration_cast<milliseconds>(endli - startli); 
+    auto durationli = duration_cast<microseconds>(endli - startli); 
 
     auto startsi = high_resolution_clock::now(); 
     //int mid_of_set = s1.size() / 2; 
@@ -79,32 +83,36 @@ int main() {
     //advance(it_s, mid_of_set);
     s1.insert ("TESTCODE"); // assignment just said insert into the set 
     auto endsi = high_resolution_clock::now(); 
-    auto durationsi = duration_cast<milliseconds>(endsi - startsi); 
+    auto durationsi = duration_cast<microseconds>(endsi - startsi); 
 
 
+    
     // DELETIONS
 
      auto startvd = high_resolution_clock::now(); 
      v1.erase(v1.begin() + 10000); 
      auto endvd = high_resolution_clock::now();
-     auto durationvd = duration_cast<milliseconds>(endvd - startvd); 
+     auto durationvd = duration_cast<microseconds>(endvd - startvd); 
 
      auto startld = high_resolution_clock::now();
      auto l_it = l1.begin();
      advance(l_it, mid_of_list); 
      l1.erase(l_it);
      auto endld = high_resolution_clock::now();
-     auto durationld = duration_cast<milliseconds>(endld - startld);
+     auto durationld = duration_cast<microseconds>(endld - startld);
 
      auto startsd = high_resolution_clock::now();
      auto s_it = s1.begin();
      advance(s_it, mid_of_list); 
      s1.erase(s_it);
      auto endsd = high_resolution_clock::now();
-     auto durationsd = duration_cast<milliseconds>(endsd - startsd);  
+     auto durationsd = duration_cast<microseconds>(endsd - startsd);  
 
 
-
+    cout<<durationvr.count()<<"    "<<durationlr.count()<<endl; 
+    cout<<durationls.count()<<endl;
+    cout<<durationvi.count()<<"  "<<durationli.count()<<"   "<<durationsi.count()<<endl; 
+    cout<<durationvd.count()<<"  "<<durationld.count()<<"   "<<durationsd.count()<<endl;
 
 
 
