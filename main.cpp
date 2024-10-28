@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <chrono>
 #include <vector>
@@ -78,10 +79,10 @@ int main() {
     auto durationli = duration_cast<microseconds>(endli - startli); 
 
     auto startsi = high_resolution_clock::now(); 
-    //int mid_of_set = s1.size() / 2; 
-    //auto it_s = s1.begin();
-    //advance(it_s, mid_of_set);
-    s1.insert ("TESTCODE"); // assignment just said insert into the set 
+    int mid_of_set = s1.size() / 2; 
+    auto it_s = s1.begin();
+    advance(it_s, mid_of_set);
+    s1.insert (it_s, "TESTCODE"); // assignment just said insert into the set 
     auto endsi = high_resolution_clock::now(); 
     auto durationsi = duration_cast<microseconds>(endsi - startsi); 
 
@@ -103,16 +104,22 @@ int main() {
 
      auto startsd = high_resolution_clock::now();
      auto s_it = s1.begin();
-     advance(s_it, mid_of_list); 
+     advance(s_it, mid_of_set); 
      s1.erase(s_it);
      auto endsd = high_resolution_clock::now();
      auto durationsd = duration_cast<microseconds>(endsd - startsd);  
 
+    cout<<setw(10)<<right<<"Operation"<<setw(10)<<right<<"Vector"<<setw(10)<<right<<"List"<<
+    setw(10)<<right<<"Set"<<endl; 
+    
+    cout<<setw(10)<<right<<"Read"<<setw(10)<<right<<durationvr.count()<<setw(10)<<right<<durationlr.count()<<endl; 
+    cout<<setw(10)<<right<<"Sort"<<setw(10)<<right<<durationls.count()<<endl;
+    
+    cout<<setw(10)<<right<<"Insert"<<setw(10)<<right<<durationvi.count()<<setw(10)<<right<<durationli.count()
+    <<setw(10)<<right<<durationsi.count()<<endl; 
 
-    cout<<durationvr.count()<<"    "<<durationlr.count()<<endl; 
-    cout<<durationls.count()<<endl;
-    cout<<durationvi.count()<<"  "<<durationli.count()<<"   "<<durationsi.count()<<endl; 
-    cout<<durationvd.count()<<"  "<<durationld.count()<<"   "<<durationsd.count()<<endl;
+    cout<<setw(10)<<right<<"Set"<<setw(10)<<right<<durationvd.count()<<setw(10)<<right<<setw(10)
+    <<right<<durationld.count()<<setw(10)<<right<<durationsd.count()<<endl;
 
 
 
