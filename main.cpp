@@ -17,8 +17,13 @@ const int CODES_SIZE = 20000;
 int main() {
     
     //READINGS
-     
-    
+    int vrtotal = 0, lrtotal = 0, srtotal = 0, 
+        vstotal = 0, lstotal = 0,
+        vitotal = 0, litotal = 0, sitotal = 0,
+        vdtotal = 0, ldtotal = 0, sdtotal = 0;
+
+
+     for(int i = 0; i < 15; i++)
     auto startvr = high_resolution_clock::now(); 
     vector<string> v1; 
     ifstream input("codes.txt");
@@ -125,7 +130,7 @@ int main() {
      auto durationsd = duration_cast<microseconds>(endsd - startsd);  
 
     cout<<setw(10)<<right<<"Operation"<<setw(10)<<right<<"Vector"<<setw(10)<<right<<"List"<<
-    setw(10)<<right<<"Set"<<endl; 
+    setw(10)<<right<<"Delete"<<endl; 
     
     cout<<setw(10)<<right<<"Read"<<setw(10)<<right<<durationvr.count()<<setw(10)<<right<<durationlr.count()
     <<setw(10)<<right<<durationsr.count()<<endl; 
