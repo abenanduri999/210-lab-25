@@ -1,4 +1,4 @@
-//COMSC 210 | LAB 25 | Abhishek Nanduri
+//COMSC 210 | LAB 26 | Abhishek Nanduri
 #include <iostream>
 #include <chrono>
 #include <vector>
@@ -142,21 +142,21 @@ int main() {
      sdtotal = sdtotal + durationsd.count();
     
      }
-
+    
     cout<<setw(10)<<right<<"Operation"<<setw(10)<<right<<"Vector"<<setw(10)<<right<<"List"<<
     setw(10)<<right<<"Delete"<<endl; 
     
-    cout<<setw(10)<<right<<"Read"<<setw(10)<<right<<vrtotal/15<<setw(10)<<right<<durationlr.count()
-    <<setw(10)<<right<<durationsr.count()<<endl; 
+    cout<<setw(10)<<right<<"Read"<<setw(10)<<right<<vrtotal/15<<setw(10)<<right<<lrtotal/15
+    <<setw(10)<<right<<srtotal/15<<endl; 
     
-    cout<<setw(10)<<right<<"Sort"<<setw(10)<<right<<durationvs.count()<<setw(10)<<right<<durationls.count()
+    cout<<setw(10)<<right<<"Sort"<<setw(10)<<right<<vstotal/15<<setw(10)<<right<<lstotal/15
     <<setw(10)<<right<<"-1"<<endl;
     
-    cout<<setw(10)<<right<<"Insert"<<setw(10)<<right<<durationvi.count()<<setw(10)<<right<<durationli.count()
-    <<setw(10)<<right<<durationsi.count()<<endl; 
+    cout<<setw(10)<<right<<"Insert"<<setw(10)<<right<<vitotal/15<<setw(10)<<right<<litotal/15
+    <<setw(10)<<right<<sitotal/15<<endl; 
 
-    cout<<setw(10)<<right<<"Set"<<setw(10)<<right<<durationvd.count()<<setw(10)<<right<<setw(10)
-    <<right<<durationld.count()<<setw(10)<<right<<durationsd.count()<<endl;
+    cout<<setw(10)<<right<<"Set"<<setw(10)<<right<<vdtotal/15<<setw(10)<<right<<setw(10)
+    <<right<<ldtotal/15<<setw(10)<<right<<sdtotal/15<<endl;
 
 
 
