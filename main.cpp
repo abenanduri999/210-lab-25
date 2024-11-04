@@ -23,7 +23,9 @@ int main() {
         vdtotal = 0, ldtotal = 0, sdtotal = 0;
 
 
-     for(int i = 0; i < 15; i++)
+     for(int i = 0; i < 15; i++) 
+     {
+
     auto startvr = high_resolution_clock::now(); 
     vector<string> v1; 
     ifstream input("codes.txt");
@@ -37,6 +39,7 @@ int main() {
     input.close(); 
     auto endvr = high_resolution_clock::now(); 
     auto durationvr = duration_cast<microseconds>(endvr - startvr); 
+    vrtotal = vrtotal + durationvr.count();
 
     auto startlr = high_resolution_clock::now(); 
     list<string> l1;
@@ -51,6 +54,7 @@ int main() {
     inputl.close();
     auto endlr = high_resolution_clock::now(); 
     auto durationlr = duration_cast<microseconds>(endlr - startlr);
+    lrtotal = lrtotal + durationlr.count();
      
     auto startsr = high_resolution_clock::now(); 
     set<string> s1; 
@@ -65,6 +69,7 @@ int main() {
     inputs.close(); 
     auto endsr = high_resolution_clock::now();
     auto durationsr = duration_cast<microseconds>(endsr - startsr); 
+    srtotal = srtotal + durationsr.count();
 
     
     
@@ -74,12 +79,13 @@ int main() {
     sort(v1.begin(), v1.end()); 
     auto endvs = high_resolution_clock::now(); 
     auto durationvs = duration_cast<milliseconds>(endvs - startvs); 
+    vstotal = vstotal + durationvs.count();
 
     auto startls = high_resolution_clock::now(); 
     l1.sort();
     auto endls = high_resolution_clock::now(); 
     auto durationls = duration_cast<microseconds>(endls - startls); 
-
+    lstotal = lstotal + durationls.count();
     
     
     //INSERTIONS
@@ -89,6 +95,7 @@ int main() {
     v1.insert(v1.begin(), middle, "TESTCODE"); 
     auto endvi = high_resolution_clock::now(); 
     auto durationvi = duration_cast<microseconds>(endvi - startvi); 
+    vitotal = vitotal + durationvi.count();
 
     auto startli = high_resolution_clock::now();  
     int mid_of_list = l1.size() / 2; 
@@ -97,6 +104,7 @@ int main() {
     l1.insert(it, "TESTCODE");
     auto endli = high_resolution_clock::now(); 
     auto durationli = duration_cast<microseconds>(endli - startli); 
+    litotal = litotal + durationli.count();
 
     auto startsi = high_resolution_clock::now(); 
     int mid_of_set = s1.size() / 2; 
@@ -105,6 +113,7 @@ int main() {
     s1.insert (it_s, "TESTCODE"); // assignment just said insert into the set 
     auto endsi = high_resolution_clock::now(); 
     auto durationsi = duration_cast<microseconds>(endsi - startsi); 
+    sitotal = sitotal + durationsi.count();
 
 
     
@@ -114,6 +123,7 @@ int main() {
      v1.erase(v1.begin() + 10000); 
      auto endvd = high_resolution_clock::now();
      auto durationvd = duration_cast<microseconds>(endvd - startvd); 
+     vdtotal = vdtotal + durationvd.count();
 
      auto startld = high_resolution_clock::now();
      auto l_it = l1.begin();
@@ -121,6 +131,7 @@ int main() {
      l1.erase(l_it);
      auto endld = high_resolution_clock::now();
      auto durationld = duration_cast<microseconds>(endld - startld);
+     ldtotal = ldtotal + durationld.count();
 
      auto startsd = high_resolution_clock::now();
      auto s_it = s1.begin();
@@ -128,11 +139,14 @@ int main() {
      s1.erase(s_it);
      auto endsd = high_resolution_clock::now();
      auto durationsd = duration_cast<microseconds>(endsd - startsd);  
+     sdtotal = sdtotal + durationsd.count();
+    
+     }
 
     cout<<setw(10)<<right<<"Operation"<<setw(10)<<right<<"Vector"<<setw(10)<<right<<"List"<<
     setw(10)<<right<<"Delete"<<endl; 
     
-    cout<<setw(10)<<right<<"Read"<<setw(10)<<right<<durationvr.count()<<setw(10)<<right<<durationlr.count()
+    cout<<setw(10)<<right<<"Read"<<setw(10)<<right<<vrtotal/15<<setw(10)<<right<<durationlr.count()
     <<setw(10)<<right<<durationsr.count()<<endl; 
     
     cout<<setw(10)<<right<<"Sort"<<setw(10)<<right<<durationvs.count()<<setw(10)<<right<<durationls.count()
